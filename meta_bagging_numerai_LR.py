@@ -12,8 +12,6 @@ Created on Wed Feb  1 18:30:10 2017
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import log_loss
 
 
@@ -48,7 +46,7 @@ tmpL = len(trind)
 
 
 # Meta bagging loop
-# for now base learner and stacker model are LogReg. consider changing to alt. Alg. Stacker model uses a tuned C value
+# for now base learner and stacker model are LogReg. consider changing to alternative algo. Stacker model uses a tuned C value
 
 for i in tmpC:
   print("\nIteration:", i)
