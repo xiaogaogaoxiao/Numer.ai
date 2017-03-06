@@ -41,12 +41,12 @@ clf.fit(Xtrain, ytrain)
 
 ypred = clf.predict_proba(Xtest)
 
-tmpC = range(1, 300)
+tmpC = range(1, 100)
 tmpL = len(trind)
 
 
 # Meta bagging loop
-# for now base learner and stacker model are LogReg. consider changing to alternative algo. Stacker model uses a tuned C value
+# for now base learner and stacker model are LogReg. consider changing to alternative algo.
 
 for i in tmpC:
   print("\nIteration:", i)
@@ -67,7 +67,7 @@ for i in tmpC:
   tmpX3 = logreg.predict_proba(Xtest)
 
   print("\nTraining Stacker:")
-  logreg2 = LogisticRegression(n_jobs=-1, C=500)
+  logreg2 = LogisticRegression(n_jobs=-1)
   logreg2.fit(np.concatenate((tmpX1, tmpX2), axis=1), tmpY1)
 
   ypred0 = logreg2.predict_proba(np.concatenate((Xtest, tmpX3), axis=1))
